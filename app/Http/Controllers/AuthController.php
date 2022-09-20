@@ -67,8 +67,9 @@ class AuthController extends Controller
             $user = User::where('email', '=', $rq->email)->first();
             $user->password = bcrypt($rq->new_password);
             $user->update();
-            Auth::login($user, true);
-            return redirect()->route('auth.login');
+           return redirect()->route('auth.login');
+                       // Auth::login($user, true);
+                    //    return redirect()->route('home');      
         }
         else{
             return redirect()->back();
